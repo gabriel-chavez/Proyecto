@@ -16,14 +16,16 @@ namespace proyecto.Areas.Admin.Controllers
         // GET: Admin/Experiencia
         public ActionResult Index(int tipo)
         {
+            
             ViewBag.tipo = tipo;
             ViewBag.Title = tipo == 1 ? "Trabajos realizados" : "Estudios previos";
-            return View();
+            return View(experiencia.Listar(tipo));
         }
-        public ActionResult Crud(byte tipo, int id = 0)
+        public ActionResult Crud(byte tipo=0, int id = 0)
         {
             if(id==0)
             {
+                if (tipo == 0) return Redirect("~/admin/experiencia");
                 experiencia.Tipo = tipo;
                 experiencia.Usuario_id = SessionHelper.GetUser();
             }

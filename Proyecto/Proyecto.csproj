@@ -113,6 +113,18 @@
     <Content Include="Areas\Admin\Assets\js\jquery.js" />
     <Content Include="Areas\Admin\Assets\js\jquery.validate.min.js" />
     <Content Include="Areas\Admin\Assets\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\Admin\Assets\tatable\css\bootstrap-table.css" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table-es-MX.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table-export.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table-filter-control.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table-filter.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\bootstrap-table11.js" />
+    <Content Include="Areas\Admin\Assets\tatable\js\tableExport.js" />
+    <Content Include="Areas\Admin\Assets\tatable\plugin\bootstrap-table-select2-filter.js" />
+    <Content Include="Areas\Admin\Assets\tatable\plugin\bootstrap-table-select2-filter.min.js" />
+    <Content Include="Areas\Admin\Assets\tatable\plugin\select2.min.css" />
+    <Content Include="Areas\Admin\Assets\tatable\plugin\select2.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Uploads\yo.jpg" />
     <Content Include="Web.config" />
@@ -160,6 +172,7 @@
     <Content Include="Areas\Admin\Views\_Viewstart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Experiencia\Crud.cshtml" />
+    <Content Include="Areas\Admin\Views\Habilidades\Crud.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

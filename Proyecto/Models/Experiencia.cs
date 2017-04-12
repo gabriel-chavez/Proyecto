@@ -56,6 +56,24 @@ namespace Proyecto.Models
             }
             return experiencia;
         }
+        public List<Experiencia> Listar(int tipo)
+        {
+            List<Experiencia> experiencia = new List<Experiencia>();
+            try
+            {
+                using (var ctx = new ProyectoContext())
+                {
+                    experiencia = ctx.Experiencia.Where(x=>x.Tipo==tipo)
+                                                .ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return experiencia;
+        }
         public ResponseModel Guardar()
         {
             var rm = new ResponseModel();

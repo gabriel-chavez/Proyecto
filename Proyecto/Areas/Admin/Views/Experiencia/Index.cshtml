@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Proyecto.Models.Experiencia>
 @{
     int tipo = ViewBag.tipo;
 }
@@ -10,32 +10,36 @@
         @ViewBag.Title
     </h1>
 
-    <table class="table table-striped table-bordered">
+    <table data-toggle="table"
+             data-height="550"
+             data-search="true"
+             data-show-toggle="true"
+             data-show-columns="true"
+             data-locale="es-MX"
+             data-show-refresh="false"
+             data-page-size="100"
+             data-pagination="true"
+             data-show-export="true"
+             data-export-types="['excel', 'pdf']"
+             data-striped="true">
         <thead>
             <tr>
-                <th>Empresa</th>
-                <th>Cargo</th>
+                <th>Nombre</th>
+                <th>Titulo</th>
                 <th>Desde</th>
                 <th>Hasta</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <a href="#">Empresa A</a>
-                </td>
-                <td>Cargo A</td>
-                <td>2015-02-02</td>
-                <td>2015-05-02</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Empresa B</a>
-                </td>
-                <td>Cargo B</td>
-                <td>2015-02-02</td>
-                <td>2015-05-02</td>
-            </tr>
+            @foreach(var fila in Model)
+            {
+                <tr>
+                    <td><a href="~/admin/experiencia/crud/@fila.id">@fila.Nombre</a></td>
+                    <td>@fila.Titulo</td>
+                    <td>@fila.Desde</td>
+                    <td>@fila.Hasta</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
