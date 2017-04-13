@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Habilidad>
 @{
     ViewBag.Title = "Habilidades obtenidas";
 }
@@ -6,7 +6,7 @@
 <div id="habilidades" class="page">
 
     <h1 class="page-header remove-margin">
-        <a class="btn btn-primary pull-right" href="#">Agregar</a>
+        <a class="btn btn-primary pull-right" href="~/admin/habilidades/crud">Agregar</a>
         Habilidades obtenidas
     </h1>
 
@@ -15,33 +15,29 @@
             <tr>
                 <th>Habilidad</th>
                 <th>Nivel</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <a href="#">PHP</a>
-                </td>
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%;">
-                            60%
+            @foreach (var fila in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="~/admin/habilidades/crud/@fila.id">@fila.Nombre</a>
+                    </td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:@fila.Dominio%;">
+                                @fila.Dominio%
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">ASP.NET MVC</a>
-                </td>
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%;">
-                            80%
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="~/admin/habilidades/eliminar/@fila.id">ELiminar</a>
+                    </td>
+                </tr>
+            }
+            
         </tbody>
     </table>
 </div>

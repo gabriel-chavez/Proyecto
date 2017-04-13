@@ -23,7 +23,7 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Dominio)
         @*@Html.TextBoxFor(x => x.Dominio, new { @class = "form-control", placegolder = "" })*@
-        <input type="number" name="dominio" id="dominio" class="form-control" placeholder="ingrese el dominio sobre la habilidad" min="1" max="100"/>
+        <input type="number" name="dominio" id="dominio" class="form-control" placeholder="ingrese el dominio sobre la habilidad" min="1" max="100" value="@Model.Dominio"/>
         @Html.ValidationMessageFor(x => x.Dominio, null, new { @class = "label label-danger" })
     </div>
     

@@ -40,7 +40,7 @@ namespace Proyecto.Models
             }
             return habilidad;
         }
-        public List<Habilidad> Listar(int tipo)
+        public List<Habilidad> Listar()
         {
             List<Habilidad> habilidad = new List<Habilidad>();
             try
@@ -90,7 +90,7 @@ namespace Proyecto.Models
                     rm.SetResponse(true);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;

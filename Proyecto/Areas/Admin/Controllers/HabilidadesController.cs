@@ -16,7 +16,7 @@ namespace proyecto.Areas.Admin.Controllers
         // GET: Admin/Habilidades
         public ActionResult Index()
         {
-            return View();
+            return View(habilidad.Listar());
         }
         public ActionResult Crud(int id = 0)
         {
@@ -40,19 +40,22 @@ namespace proyecto.Areas.Admin.Controllers
                 rm = model.Guardar();
                 if (rm.response)
                 {
-                    rm.href = Url.Content("~/admin/habilidad/");
+                    rm.href = Url.Content("~/admin/habilidades/");
                 }
             }
             return Json(rm);
         }
-        public JsonResult Eliminar(int id)
+        //public JsonResult Eliminar(int id)
+        //{
+        //    var rm = habilidad.Eliminar(id);
+            
+        //    return Json(rm);
+        //}
+        public ActionResult Eliminar(int id)
         {
             var rm = habilidad.Eliminar(id);
-            if (rm.response)
-            {
-                rm.href = Url.Content("self");
-            }
-            return Json(rm);
+
+            return Redirect("~/admin/habilidades/");
         }
     }
 
