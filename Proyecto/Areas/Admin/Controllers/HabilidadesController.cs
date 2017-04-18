@@ -45,12 +45,7 @@ namespace proyecto.Areas.Admin.Controllers
             }
             return Json(rm);
         }
-        //public JsonResult Eliminar(int id)
-        //{
-        //    var rm = habilidad.Eliminar(id);
-            
-        //    return Json(rm);
-        //}
+      
         public ActionResult Eliminar(int id)
         {
             var rm = habilidad.Eliminar(id);

@@ -63,6 +63,8 @@ namespace Proyecto.Models
 
         [StringLength(50)]
         public string Foto { get; set; }
+        [NotMapped]
+        public TablaDato Pais { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Experiencia> Experiencia { get; set; }
@@ -101,18 +103,35 @@ namespace Proyecto.Models
             }
             return rm;
         }
-        public Usuario Obtener(int id)
+        public Usuario Obtener(int id,bool includes=false)
         {
             var usuario = new Usuario();
             try
             {
                 using (var ctx = new ProyectoContext())
                 {
-                    usuario = ctx.Usuario.Where(x => x.id == id)
+                    if(!includes)
+                    {
+                        usuario = ctx.Usuario.Where(x => x.id == id)
                                 .SingleOrDefault();
+                    }
+                    else
+                    {
+                        usuario = ctx.Usuario.Include("Experiencia")
+                                            .Include("Habilidad")
+                                            .Include("Testimonio")
+                                            .Where(x => x.id == id)
+                                            .SingleOrDefault();
+
+                        //trayendo un registro adicional de manera manual cuando no se tiene relacion
+                        usuario.Pais = new TablaDato().Obtener("pais", usuario.Pais_id.ToString());
+
+                    }
+                   
+
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;

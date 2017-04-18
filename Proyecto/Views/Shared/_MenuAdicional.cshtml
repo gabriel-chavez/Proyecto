@@ -1,0 +1,33 @@
+﻿@model Proyecto.Models.Usuario
+
+<div class="options-container-fixed">
+    <div class="options">
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="#" class="btn btn-danger">
+                    <i class="fa fa-file-pdf-o"></i> <span class="hidden-xs hidden-sm">Descargar en PDF</span>
+                </a>
+                <button class="btn btn-primary">
+                    <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
+                </button>
+                <button class="btn btn-default" data-toggle="modal" data-target="#mContacto">
+                    <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm">Contactar</span>
+                </button>
+                @if (Model.Facebook != null)
+                {
+                    <a title="Facebook" class="btn btn-default" target="_blank" href="@Model.Facebook"><i class="fa fa-facebook-official"></i></a>
+                }
+                @if (Model.Twitter != null)
+                {
+                    <a title="Twitter" class="btn btn-default" target="_blank" href="@Model.Twitter"><i class="fa fa-twitter"></i></a>
+                }
+                @if (Model.YouTube != null)
+                {
+                    <a title="Youtube" class="btn btn-default" target="_blank" href="@Model.Facebook"><i class="fa fa-youtube"></i></a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+   @Html.Partial("_Contacto",new Proyecto.ViewModels.ContactoViewModel())

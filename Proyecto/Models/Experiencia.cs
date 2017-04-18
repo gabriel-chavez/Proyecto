@@ -1,5 +1,6 @@
 namespace Proyecto.Models
 {
+    using Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -63,7 +64,9 @@ namespace Proyecto.Models
             {
                 using (var ctx = new ProyectoContext())
                 {
-                    experiencia = ctx.Experiencia.Where(x=>x.Tipo==tipo)
+                    var id = SessionHelper.GetUser();
+                    experiencia = ctx.Experiencia.Where(x => x.Tipo == tipo)
+                                                 .Where(x => x.Usuario_id == id)
                                                 .ToList();
                 }
             }
