@@ -8,6 +8,7 @@ using System.Web.Routing;
 
 namespace Proyecto.Areas.Admin.Filters
 {
+    //para [autenticado]
     // Si no estamos logeado, regresamos al login
     public class AutenticadoAttribute : ActionFilterAttribute
     {
@@ -25,7 +26,7 @@ namespace Proyecto.Areas.Admin.Filters
             }
         }
     }
-
+    //para [NoLogin]
     // Si estamos logeado ya no podemos acceder a la página de Login
     public class NoLoginAttribute : ActionFilterAttribute
     {
